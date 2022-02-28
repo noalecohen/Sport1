@@ -1,16 +1,16 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import AccountIcon from '../../assets/icons/AccountIcon';
-import Logo from '../../assets/Logo';
+import AccountIcon from '../assets/icons/AccountIcon';
+import Logo from '../assets/Logo';
 
 const Header = () => {
   return (
     <View style={styles.header}>
-      <View>
-        <AccountIcon />
-      </View>
-      <View style={styles.logo}>
-        <Logo />
+      <View style={styles.headerContainer}>
+        <AccountIcon style={styles.accountIcon} />
+        <View style={styles.logo}>
+          <Logo />
+        </View>
       </View>
     </View>
   );
@@ -20,14 +20,23 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     width: '100%',
-    height: 90,
-    paddingTop: 36,
+    height: '10%',
     backgroundColor: '#021414',
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'space-around',
+  },
+  headerContainer: {
+    flex: 1,
+    flexDirection: 'row',
   },
   logo: {
-    width: '50%',
+    flex: 0.9,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  accountIcon: {
+    flex: 0.1,
+    marginLeft: 16,
   },
 });
 

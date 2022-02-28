@@ -1,9 +1,13 @@
 import React from 'react';
+import {ViewStyle} from 'react-native';
 import Svg, {G, Path} from 'react-native-svg';
+interface Props {
+  style: ViewStyle | ViewStyle[];
+}
 
-const AccountIcon = () => {
+const AccountIcon = (props: Props) => {
   return (
-    <Svg width="26" height="24" viewBox="0 0 26 24">
+    <Svg width="26" height="24" viewBox="0 0 26 24" style={props.style}>
       <G fill="none" fill-rule="evenodd">
         <G fill-rule="nonzero">
           <G>
