@@ -4,8 +4,8 @@ import Svg, {Color, G, Path} from 'react-native-svg';
 const VodIcon = (props: {color: Color | undefined}) => {
   return (
     <Svg width="23" height="15" viewBox="0 0 23 15">
-      <G fill="none" fill-rule="evenodd">
-        <G fill={props.color} fill-rule="nonzero">
+      <G fill="none" fillRule="evenodd">
+        <G fill={props.color} fillRule="nonzero">
           <G>
             <G>
               <G>

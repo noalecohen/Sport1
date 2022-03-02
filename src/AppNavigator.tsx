@@ -8,7 +8,6 @@ import Colors from './constants/Colors';
 import HomeScreen from './features/Home/HomeScreen';
 import MoreScreen from './features/More/MoreScreen';
 import VodScreen from './features/Vod/VodScreen';
-//const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   const Tab = createBottomTabNavigator();

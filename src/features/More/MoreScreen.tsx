@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const MoreScreen = () => {
   return (
     <View style={styles.text}>
-      <Text>More Screen Test</Text>
+      <Text>More Screen</Text>
     </View>
   );
 };
