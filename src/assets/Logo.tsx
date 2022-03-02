@@ -4,8 +4,8 @@ import Svg, {G, Path} from 'react-native-svg';
 const Logo = () => {
   return (
     <Svg width="85" height="23" viewBox="0 0 85 23">
-      <G fill="none" fill-rule="evenodd">
-        <G fill-rule="nonzero">
+      <G fill="none" fillRule="evenodd">
+        <G fillRule="nonzero">
           <G>
             <G>
               <G>

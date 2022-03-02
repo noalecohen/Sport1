@@ -4,8 +4,8 @@ import Svg, {Color, G, Path} from 'react-native-svg';
 const HomeIcon = (props: {color: Color | undefined}) => {
   return (
     <Svg width="15" height="16" viewBox="0 0 15 16">
-      <G fill="none" fill-rule="evenodd">
-        <G fill={props.color} fill-rule="nonzero">
+      <G fill="none" fillRule="evenodd">
+        <G fill={props.color} fillRule="nonzero">
           <G>
             <G>
               <G>

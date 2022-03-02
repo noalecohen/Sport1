@@ -4,7 +4,7 @@ import Svg, {Color, G, Rect} from 'react-native-svg';
 const MoreIcon = (props: {color: Color | undefined}) => {
   return (
     <Svg width="24" height="21" viewBox="0 0 24 21">
-      <G fill="none" fill-rule="evenodd">
+      <G fill="none" fillRule="evenodd">
         <G>
           <G>
             <G>
@@ -34,19 +34,6 @@ const MoreIcon = (props: {color: Color | undefined}) => {
                           fill={props.color}
                           rx="1"
                         />
-                        {/* <Circle
-                          cx="16.5"
-                          cy="6"
-                          r="6.5"
-                          fill="#02F784"
-                          stroke="#141414"
-                          stroke-width="2"
-                        />
-                        <Path
-                          fill="#000"
-                          fill-rule="nonzero"
-                          d="M16.344 9V4.96h-.984v-.752c.664 0 1.056-.368 1.224-.904h.856V9h-1.096z"
-                        /> */}
                       </G>
                     </G>
                   </G>

@@ -1,14 +1,18 @@
 import React from 'react';
+import {ViewStyle} from 'react-native';
 import Svg, {G, Path} from 'react-native-svg';
+interface Props {
+  style: ViewStyle | ViewStyle[];
+}
 
-const AccountIcon = () => {
+const AccountIcon = (props: Props) => {
   return (
-    <Svg width="26" height="24" viewBox="0 0 26 24">
-      <G fill="none" fill-rule="evenodd">
-        <G fill-rule="nonzero">
+    <Svg width="26" height="24" viewBox="0 0 26 24" style={props.style}>
+      <G fill="none" fillRule="evenodd">
+        <G fillRule="nonzero">
           <G>
             <G>
-              <G stroke="#FFF" stroke-linejoin="round" stroke-width="1.56">
+              <G stroke="#FFF" strokeLinejoin="round" strokeWidth="1.56">
                 <Path
                   d="M8.696 0c2.457 0 4.45 2.046 4.45 4.571 0 2.524-1.993 4.57-4.45 4.57s-4.45-2.046-4.45-4.57C4.25 2.048 6.24.003 8.697 0z"
                   transform="translate(-18 -14) translate(19 15)"
@@ -21,7 +25,7 @@ const AccountIcon = () => {
               <Path
                 fill="#02F784"
                 stroke="#141414"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M18.641 11.952l4.278.846-2.984 3.322.565 4.605-4-1.993-4 1.993.565-4.605-2.984-3.322 4.278-.846L16.5 7.831l2.141 4.121z"
                 transform="translate(-18 -14) translate(19 15)"
               />
