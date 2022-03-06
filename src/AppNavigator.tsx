@@ -1,16 +1,17 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-import React from 'react';
-import HomeIcon from './assets/icons/HomeIcon';
-import MoreIcon from './assets/icons/MoreIcon';
-import VodIcon from './assets/icons/VodIcon';
-import Colors from './constants/Colors';
-import HomeScreen from './features/Home/HomeScreen';
-import MoreScreen from './features/More/moreScreen';
-import VodScreen from './features/Vod/VodScreen';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import HomeIcon from "./assets/icons/HomeIcon";
+import MoreIcon from "./assets/icons/MoreIcon";
+import VodIcon from "./assets/icons/VodIcon";
+import Colors from "./constants/Colors";
+import HomeScreen from "./features/Home/HomeScreen";
+import MoreScreen from "./features/More/moreScreen";
+import VodScreen from "./features/Vod/VodScreen";
 
 const AppNavigator = () => {
   const Tab = createBottomTabNavigator();
+
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -21,16 +22,17 @@ const AppNavigator = () => {
           tabBarActiveBackgroundColor: Colors.primary,
           tabBarInactiveBackgroundColor: Colors.primary,
           headerShown: false,
-        }}>
+        }}
+      >
         <Tab.Screen
           name="MORE"
           component={MoreScreen}
           options={{
-            tabBarLabel: 'עוד',
+            tabBarLabel: "עוד",
             tabBarLabelStyle: {
               paddingRight: 7,
             },
-            tabBarIcon: ({focused}) => {
+            tabBarIcon: ({ focused }) => {
               return (
                 <MoreIcon
                   color={focused ? Colors.activeIcon : Colors.inactiveIcon}
@@ -44,8 +46,8 @@ const AppNavigator = () => {
           name="VOD"
           component={VodScreen}
           options={{
-            tabBarLabel: 'VOD',
-            tabBarIcon: ({focused}) => {
+            tabBarLabel: "VOD",
+            tabBarIcon: ({ focused }) => {
               return (
                 <VodIcon
                   color={focused ? Colors.activeIcon : Colors.inactiveIcon}
@@ -58,8 +60,8 @@ const AppNavigator = () => {
           name="Home"
           component={HomeScreen}
           options={{
-            tabBarLabel: 'ראשי',
-            tabBarIcon: ({focused}) => {
+            tabBarLabel: "ראשי",
+            tabBarIcon: ({ focused }) => {
               return (
                 <HomeIcon
                   color={focused ? Colors.activeIcon : Colors.inactiveIcon}

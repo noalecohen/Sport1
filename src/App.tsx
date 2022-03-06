@@ -8,19 +8,19 @@
  * @format
  */
 
-import React from 'react';
-import {StatusBar, StyleSheet, SafeAreaView} from 'react-native';
-import {Provider} from 'react-redux';
-import {store} from './Store/Store';
+import React from "react";
+import { StatusBar, StyleSheet, SafeAreaView } from "react-native";
+import { Provider } from "react-redux";
+import { store } from "./Store/Store";
 
-import Header from './components/Header';
-import AppNavigator from './AppNavigator';
+import Header from "./components/Header";
+import AppNavigator from "./AppNavigator";
 
 const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.screen}>
-        <StatusBar backgroundColor={'black'} />
+        <StatusBar backgroundColor={"black"} />
         <Header />
         <AppNavigator />
       </SafeAreaView>
@@ -31,7 +31,7 @@ const App = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: "black",
   },
 });
 

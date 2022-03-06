@@ -1,42 +1,92 @@
-import React, { useEffect } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { FlatList, StyleSheet, TextInput, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategories, selectStatus } from "./moreSlice";
+import { selectCategories } from "./moreSlice";
 import moreAsync from "./moreAsync";
 import Category from "./more.model";
-
-const renderListItem = (itemData: { item: Category }) => (
-  <View>
-    <Text>{itemData.item?.title}</Text>
-  </View>
-);
+import MoveoIcon from "../../assets/icons/MoveoIcon";
+import CategoryItem from "./components/categoryItem";
+import SearchIcon from "../../assets/icons/SearchIcon";
 
 const MoreScreen = () => {
-  const categoriesStatus = useSelector(selectStatus);
   const categories = useSelector(selectCategories);
   const dispatch = useDispatch();
+  const [indexOfPressedCategory, setIndexOfPressedCategory] = useState<
+    number | null
+  >(null);
+
+  const renderCategoryItem = (itemData: { item: Category; index: number }) => (
+    <CategoryItem
+      itemData={itemData}
+      indexOfPressedCategory={indexOfPressedCategory}
+      setIndexOfPressedCategory={setIndexOfPressedCategory}
+    />
+  );
 
   useEffect(() => {
-    if (categoriesStatus === "idle") {
-      dispatch(moreAsync.getCategories());
-    }
-  }, [categories, categoriesStatus, dispatch]);
+    dispatch(moreAsync.getCategories());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); //just once
 
   return (
-    <View>
-      <Text>Categories List</Text>
-      <FlatList
-        data={categories}
-        renderItem={renderListItem.bind(this)}
-        style={styles.list}
-      />
+    <View style={styles.screen}>
+      <View style={styles.inputContainer}>
+        <View style={styles.inputText}>
+          <TextInput placeholder="חפש קבוצות, ליגות, שחקנים…." />
+        </View>
+        <View style={styles.searchIcon}>
+          <SearchIcon />
+        </View>
+      </View>
+
+      <View style={styles.listContainer}>
+        <FlatList
+          data={categories}
+          renderItem={renderCategoryItem}
+          keyExtractor={(item) => item.id}
+          style={styles.list}
+        />
+      </View>
+      <View style={styles.moveoIcon}>
+        <MoveoIcon />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
+  listContainer: {
+    flex: 1,
+    width: "100%",
+  },
   list: {
+    flexGrow: 1,
+  },
+  moveoIcon: {
+    alignItems: "center",
+    marginVertical: 32,
+  },
+  inputContainer: {
+    backgroundColor: "white",
+    paddingHorizontal: 12,
+    paddingVertical: 16,
     flexDirection: "row",
+    justifyContent: "flex-end",
+    margin: 14,
+    borderRadius: 8,
+  },
+  searchIcon: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    marginHorizontal: 16,
+  },
+  inputText: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    //fontSize: 17, //TODO: placeholder size...?
   },
 });
 

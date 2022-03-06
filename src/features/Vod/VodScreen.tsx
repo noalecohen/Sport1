@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const VodScreen = () => {
   return (
@@ -12,8 +12,8 @@ const VodScreen = () => {
 const styles = StyleSheet.create({
   text: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

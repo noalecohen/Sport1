@@ -5,14 +5,12 @@ import moreAsync from "./moreAsync";
 
 //interface for *all* the states in More
 interface InitialState {
-  categories: Category[];
-  status: "idle" | "pending" | "fulfilled" | "failed";
+  categories: Category[] | null;
 }
 
 //the "state" - initialize *all* states in More
 const initialState: InitialState = {
-  categories: [],
-  status: "idle",
+  categories: null,
 };
 
 const moreSlice = createSlice({
@@ -22,11 +20,14 @@ const moreSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(moreAsync.getCategories.fulfilled, (state, action) => {
-        state.status = "fulfilled";
-        state.categories.push(...action.payload.categories);
+        if (!state.categories) {
+          state.categories = [...action.payload.categories];
+        } else {
+          state.categories.push(...action.payload.categories);
+        }
+        console.log("fulfilled...");
       })
-      .addCase(moreAsync.getCategories.pending, (state) => {
-        state.status = "pending";
+      .addCase(moreAsync.getCategories.pending, () => {
         console.log("pending...");
       })
       .addCase(moreAsync.getCategories.rejected, () => {
@@ -36,5 +37,4 @@ const moreSlice = createSlice({
 });
 
 export const selectCategories = (state: RootState) => state.more.categories;
-export const selectStatus = (state: RootState) => state.more.status;
 export default moreSlice.reducer;
