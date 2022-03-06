@@ -6,7 +6,7 @@ import MoreIcon from './assets/icons/MoreIcon';
 import VodIcon from './assets/icons/VodIcon';
 import Colors from './constants/Colors';
 import HomeScreen from './features/Home/HomeScreen';
-import MoreScreen from './features/More/MoreScreen';
+import MoreScreen from './features/More/moreScreen';
 import VodScreen from './features/Vod/VodScreen';
 
 const AppNavigator = () => {

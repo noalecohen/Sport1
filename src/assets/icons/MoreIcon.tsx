@@ -1,7 +1,7 @@
-import React from 'react';
-import Svg, {Color, G, Rect} from 'react-native-svg';
+import React from "react";
+import Svg, { Color, G, Rect } from "react-native-svg";
 
-const MoreIcon = (props: {color: Color | undefined}) => {
+const MoreIcon = (props: { color: Color | undefined }) => {
   return (
     <Svg width="24" height="21" viewBox="0 0 24 21">
       <G fill="none" fillRule="evenodd">
