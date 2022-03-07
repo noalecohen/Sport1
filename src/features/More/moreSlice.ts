@@ -1,7 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../../Store/Store";
-import Category from "./more.model";
-import moreAsync from "./moreAsync";
+import { createSlice } from '@reduxjs/toolkit';
+import Strings from '../../constants/Strings';
+import { RootState } from '../../Store/Store';
+import Category from './more.model';
+import moreAsync from './moreAsync';
 
 //interface for *all* the states in More
 interface InitialState {
@@ -14,7 +15,7 @@ const initialState: InitialState = {
 };
 
 const moreSlice = createSlice({
-  name: "more",
+  name: Strings.moreScreen.slice.NAME,
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -26,10 +27,9 @@ const moreSlice = createSlice({
           state.categories.push(...action.payload.categories);
         }
       })
-      .addCase(moreAsync.getCategories.pending, () => {})
-      .addCase(moreAsync.getCategories.rejected, () => {});
+      .addCase(moreAsync.getCategories.pending, () => {}) //TODO: activity indicator
+      .addCase(moreAsync.getCategories.rejected, () => {}); //TODO: handle errors
   },
 });
-
 export const selectCategories = (state: RootState) => state.more.categories;
 export default moreSlice.reducer;

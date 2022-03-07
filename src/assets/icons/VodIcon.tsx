@@ -1,7 +1,11 @@
 import React from 'react';
-import Svg, {Color, G, Path} from 'react-native-svg';
+import Svg, { G, Path } from 'react-native-svg';
 
-const VodIcon = (props: {color: Color | undefined}) => {
+interface VodIconProps {
+  color: string;
+}
+
+const VodIcon = (props: VodIconProps) => {
   return (
     <Svg width="23" height="15" viewBox="0 0 23 15">
       <G fill="none" fillRule="evenodd">

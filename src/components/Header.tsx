@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import AccountIcon from '../assets/icons/AccountIcon';
 import Logo from '../assets/Logo';
+import Colors from '../constants/Colors';
 
 const Header = () => {
   return (
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     height: '10%',
-    backgroundColor: '#021414',
+    backgroundColor: Colors.PRIMARY,
     justifyContent: 'center',
     alignItems: 'center',
   },

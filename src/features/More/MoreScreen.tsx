@@ -6,7 +6,9 @@ import moreAsync from './moreAsync';
 import Category from './more.model';
 import CategoryItem from './components/categoryItem';
 import SearchIcon from '../../assets/icons/SearchIcon';
-import MoveoLogo from '../../assets/icons/MoveoLogo';
+import MoveoIcon from '../../assets/icons/MoveoIcon';
+import Strings from '../../constants/Strings';
+import Colors from '../../constants/Colors';
 
 const MoreScreen = () => {
   const categories = useSelector(selectCategories);
@@ -26,12 +28,12 @@ const MoreScreen = () => {
   useEffect(() => {
     dispatch(moreAsync.getCategories());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); //just once
+  }, []);
 
   return (
     <View style={styles.screen}>
       <View style={styles.inputContainer}>
-        <TextInput placeholder="חפש קבוצות, ליגות, שחקנים…." />
+        <TextInput placeholder={Strings.moreScreen.SEARCH_PLACEHOLDER} />
         <View style={styles.searchIcon}>
           <SearchIcon />
         </View>
@@ -43,7 +45,7 @@ const MoreScreen = () => {
           renderItem={renderCategoryItem}
           keyExtractor={(item) => item.id}
           style={styles.list}
-          ListFooterComponent={MoveoLogo}
+          ListFooterComponent={<MoveoIcon style={styles.moveoIcon} />}
         />
       </View>
     </View>
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   inputContainer: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     paddingHorizontal: 12,
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -75,6 +77,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     marginHorizontal: 8,
+  },
+  moveoIcon: {
+    alignSelf: 'center',
+    marginVertical: 32,
   },
 });
 

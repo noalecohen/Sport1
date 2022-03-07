@@ -15,7 +15,7 @@ const CategoryItem = (props: CategoryItemProps) => {
     <TouchableOpacity
       style={{
         ...styles.listItem,
-        backgroundColor: isSelected ? Colors.activeIcon : 'white',
+        backgroundColor: props.isSelected ? Colors.ACTIVE_ICON : Colors.WHITE,
       }}
       onPress={() => {
         props.setIndexOfPressedCategory(props.itemData.index);
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     paddingRight: 18,
     paddingBottom: 16,
     marginVertical: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.WHITE,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     width: '100%',

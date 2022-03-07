@@ -1,10 +1,11 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Strings from '../../constants/Strings';
 
 const VodScreen = () => {
   return (
     <View style={styles.text}>
-      <Text>VOD Screen</Text>
+      <Text>{Strings.vodScreen.PLACEHOLDER}</Text>
     </View>
   );
 };
@@ -12,8 +13,8 @@ const VodScreen = () => {
 const styles = StyleSheet.create({
   text: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
