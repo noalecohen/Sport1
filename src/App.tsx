@@ -8,15 +8,20 @@
  * @format
  */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { StatusBar, StyleSheet, SafeAreaView } from "react-native";
 import { Provider } from "react-redux";
 import { store } from "./Store/Store";
+import SplashScreen from "react-native-splash-screen";
 
 import Header from "./components/Header";
 import AppNavigator from "./AppNavigator";
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.screen}>
