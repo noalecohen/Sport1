@@ -31,9 +31,7 @@ const MoreScreen = () => {
   return (
     <View style={styles.screen}>
       <View style={styles.inputContainer}>
-        {/* <View style={styles.inputText}> */}
           <TextInput placeholder="חפש קבוצות, ליגות, שחקנים…." />
-        {/* </View> */}
         <View style={styles.searchIcon}>
           <SearchIcon />
         </View>
@@ -83,10 +81,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-end",
     marginHorizontal: 8,
-  },
-  inputText: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
   },
 });
 
