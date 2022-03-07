@@ -25,14 +25,9 @@ const moreSlice = createSlice({
         } else {
           state.categories.push(...action.payload.categories);
         }
-        console.log("fulfilled...");
       })
-      .addCase(moreAsync.getCategories.pending, () => {
-        console.log("pending...");
-      })
-      .addCase(moreAsync.getCategories.rejected, () => {
-        console.log("error");
-      });
+      .addCase(moreAsync.getCategories.pending, () => {})
+      .addCase(moreAsync.getCategories.rejected, () => {});
   },
 });
 
