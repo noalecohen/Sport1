@@ -1,4 +1,4 @@
-import moreApi from "./moreApi";
+import moreApi from './moreApi';
 
 const moreRepository = {
   getCategories: async () => {
