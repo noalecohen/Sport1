@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "./moreSlice";
 import moreAsync from "./moreAsync";
 import Category from "./more.model";
-import MoveoIcon from "../../assets/icons/MoveoIcon";
 import CategoryItem from "./components/categoryItem";
 import SearchIcon from "../../assets/icons/SearchIcon";
+import MoveoLogo from "../../assets/icons/MoveoLogo";
 
 const MoreScreen = () => {
   const categories = useSelector(selectCategories);
@@ -31,7 +31,7 @@ const MoreScreen = () => {
   return (
     <View style={styles.screen}>
       <View style={styles.inputContainer}>
-          <TextInput placeholder="חפש קבוצות, ליגות, שחקנים…." />
+        <TextInput placeholder="חפש קבוצות, ליגות, שחקנים…." />
         <View style={styles.searchIcon}>
           <SearchIcon />
         </View>
@@ -43,10 +43,8 @@ const MoreScreen = () => {
           renderItem={renderCategoryItem}
           keyExtractor={(item) => item.id}
           style={styles.list}
+          ListFooterComponent={MoveoLogo}
         />
-      </View>
-      <View style={styles.moveoIcon}>
-        <MoveoIcon />
       </View>
     </View>
   );
@@ -62,10 +60,6 @@ const styles = StyleSheet.create({
   },
   list: {
     flexGrow: 1,
-  },
-  moveoIcon: {
-    alignItems: "center",
-    marginVertical: 32,
   },
   inputContainer: {
     backgroundColor: "white",
