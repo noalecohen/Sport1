@@ -31,26 +31,3 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:background="@color/black"-->
-<!--    android:gravity="center"-->
-<!--    android:orientation="vertical">-->
-
-<!--    <ImageView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@mipmap/artboard"-->
-<!--        android:layout_marginBottom="275pt" />-->
-
-<!--    <ImageView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@mipmap/created_by_moveo" />-->
-
-<!--</LinearLayout>-->
