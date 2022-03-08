@@ -8,14 +8,15 @@
  * @format
  */
 
-import React, { useEffect } from "react";
-import { StatusBar, StyleSheet, SafeAreaView } from "react-native";
-import { Provider } from "react-redux";
-import { store } from "./Store/Store";
-import SplashScreen from "react-native-splash-screen";
+import React, { useEffect } from 'react';
+import { StatusBar, StyleSheet, SafeAreaView } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './Store/Store';
 
-import Header from "./components/Header";
-import AppNavigator from "./AppNavigator";
+import Header from './components/Header';
+import AppNavigator from './AppNavigator';
+import Colors from './constants/Colors';
+import SplashScreen from 'react-native-splash-screen';
 
 const App = () => {
   useEffect(() => {
@@ -25,7 +26,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.screen}>
-        <StatusBar backgroundColor={"black"} />
+        <StatusBar backgroundColor={Colors.BLACK} />
         <Header />
         <AppNavigator />
       </SafeAreaView>
@@ -36,7 +37,7 @@ const App = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: Colors.BLACK,
   },
 });
 

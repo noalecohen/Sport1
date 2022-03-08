@@ -1,11 +1,12 @@
 import React from 'react';
-import {ViewStyle} from 'react-native';
-import Svg, {G, Path} from 'react-native-svg';
-interface Props {
+import { ViewStyle } from 'react-native';
+import Svg, { G, Path } from 'react-native-svg';
+
+interface AccountIconProps {
   style: ViewStyle | ViewStyle[];
 }
 
-const AccountIcon = (props: Props) => {
+const AccountIcon = (props: AccountIconProps) => {
   return (
     <Svg width="26" height="24" viewBox="0 0 26 24" style={props.style}>
       <G fill="none" fillRule="evenodd">

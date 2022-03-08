@@ -1,9 +1,14 @@
-import React from "react";
-import Svg, { G, Path } from "react-native-svg";
+import React from 'react';
+import { ViewStyle } from 'react-native';
+import Svg, { G, Path } from 'react-native-svg';
 
-const MoveoIcon = () => {
+interface MoveoIconProps {
+  style: ViewStyle | ViewStyle[];
+}
+
+const MoveoIcon = (props: MoveoIconProps) => {
   return (
-    <Svg width="182" height="15" viewBox="0 0 182 15">
+    <Svg width="182" height="15" viewBox="0 0 182 15" style={props.style}>
       <G fill="none" fillRule="evenodd" opacity=".453">
         <G fill="#000" fillRule="nonzero">
           <G>

@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import Strings from '../../constants/Strings';
 
 const HomeScreen = () => {
   return (
     <View style={styles.text}>
-      <Text>Home Screen</Text>
+      <Text>{Strings.homeScreen.PLACEHOLDER}</Text>
     </View>
   );
 };

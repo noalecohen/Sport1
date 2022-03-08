@@ -1,7 +1,11 @@
 import React from 'react';
-import Svg, {Color, G, Path} from 'react-native-svg';
+import Svg, { G, Path } from 'react-native-svg';
 
-const HomeIcon = (props: {color: Color | undefined}) => {
+interface HomeIconProps {
+  color: string;
+}
+
+const HomeIcon = (props: HomeIconProps) => {
   return (
     <Svg width="15" height="16" viewBox="0 0 15 16">
       <G fill="none" fillRule="evenodd">

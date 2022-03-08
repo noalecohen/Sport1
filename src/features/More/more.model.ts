@@ -2,7 +2,7 @@ interface Category {
   title: string;
   id: string;
   is_parent_category: boolean;
-  //children: []; // TODO: can't assing Category[] type...
+  //children: SubCategory[]; // TODO: future structure
 }
 
 export default Category;

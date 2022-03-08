@@ -2,8 +2,12 @@ import moreApi from './moreApi';
 
 const moreRepository = {
   getCategories: async () => {
-    const result = await moreApi.getCategories();
-    return result;
+    try {
+      const result = await moreApi.getCategories();
+      return result;
+    } catch (error) {
+      //TODO: handle error
+    }
   },
 };
 

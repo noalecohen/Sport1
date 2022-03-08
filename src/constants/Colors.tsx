@@ -1,7 +1,9 @@
 export default {
-  activeIcon: '#02F784',
-  inactiveIcon: '#8B8B8B',
-  activeLabel: '#E3E3E3',
-  inactiveLabel: '#8B8B8B',
-  primary: '#021414',
+  ACTIVE_ICON: '#02F784',
+  INACTIVE_ICON: '#8B8B8B',
+  ACTIVE_LABEL: '#E3E3E3',
+  INACTIVE_LABEL: '#8B8B8B',
+  PRIMARY: '#141414',
+  BLACK: '#000000',
+  WHITE: '#FFFFFF',
 };
