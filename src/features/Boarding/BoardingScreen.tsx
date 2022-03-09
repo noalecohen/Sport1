@@ -1,5 +1,5 @@
-import {NavigationProp} from '@react-navigation/native';
-import React, {useState} from 'react';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React, { useState } from 'react';
 import {
   Dimensions,
   FlatList,
@@ -10,25 +10,27 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { RootStackParamList } from '../../AppStackNavigator';
 import Footer from './components/Footer';
 import Slide from './components/Slide';
 import SlidesIndicators from './components/SlidesIndicators';
 import Start from './components/Start';
 import slideModel from './slide.model';
 
-interface BoardingScreenProps {
-  navigation: NavigationProp<any>;
-}
+type BoardingScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'onBoardingScreen'
+>;
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const slides = slideModel;
 
-const BoardingScreen = (props: BoardingScreenProps) => {
+const BoardingScreen = ({ navigation }: BoardingScreenProps) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   const updateCurrentSlideIndex = (
-    event: NativeSyntheticEvent<NativeScrollEvent>,
+    event: NativeSyntheticEvent<NativeScrollEvent>
   ) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
     const currentIndex = Math.round(contentOffsetX / width);
@@ -46,8 +48,9 @@ const BoardingScreen = (props: BoardingScreenProps) => {
       <View style={styles.skip}>
         <TouchableOpacity
           onPress={() => {
-            props.navigation.replace('mainScreen');
-          }}>
+            navigation.replace('mainScreen');
+          }}
+        >
           <Text style={styles.skipTitle}>דלג</Text>
         </TouchableOpacity>
       </View>
@@ -56,10 +59,10 @@ const BoardingScreen = (props: BoardingScreenProps) => {
         data={slides}
         onMomentumScrollBegin={updateCurrentSlideIndex}
         pagingEnabled
-        contentContainerStyle={{height: height * 0.65}}
+        contentContainerStyle={{ height: height * 0.65 }}
         horizontal
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => <Slide item={item} />}
+        renderItem={({ item }) => <Slide item={item} />}
       />
       <Footer footerContent={footerContent} />
     </View>

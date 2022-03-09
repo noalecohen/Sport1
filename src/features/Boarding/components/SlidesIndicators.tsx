@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Colors from '../../../constants/Colors';
-import {Slide} from './Slide';
+import { Slide } from './Slide';
 
 interface SlidesIndicatorsProps {
   slides: Slide[];
@@ -17,7 +17,7 @@ const SlidesIndicators = (props: SlidesIndicatorsProps) => {
           style={[
             styles.indicator,
             props.currentSlideIndex === index && {
-              backgroundColor: Colors.activeIcon,
+              backgroundColor: Colors.ACTIVE_ICON,
             },
           ]}
         />

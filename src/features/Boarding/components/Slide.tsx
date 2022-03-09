@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Colors from '../../../constants/Colors';
 
 export interface Slide {
   id: string;
@@ -20,7 +20,7 @@ interface slideProps {
   item: Slide;
 }
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const Slide = (props: slideProps) => {
   return (
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   line: {
     height: 4,
     width: 60,
-    backgroundColor: Colors.activeIcon,
+    backgroundColor: Colors.ACTIVE_ICON,
     borderRadius: 7,
     marginTop: 3,
   },

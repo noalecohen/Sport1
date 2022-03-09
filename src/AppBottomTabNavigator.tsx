@@ -9,7 +9,7 @@ import MoreScreen from './features/More/MoreScreen';
 import VodScreen from './features/Vod/VodScreen';
 import Strings from './constants/Strings';
 
-const AppNavigator = () => {
+const AppBottomTabNavigator = () => {
   const Tab = createBottomTabNavigator();
 
   return (
@@ -73,4 +73,4 @@ const AppNavigator = () => {
   );
 };
 
-export default AppNavigator;
+export default AppBottomTabNavigator;

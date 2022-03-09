@@ -1,13 +1,13 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import AppNavigator from './AppNavigator';
+import { StyleSheet, View } from 'react-native';
+import AppBottomTabNavigator from './AppBottomTabNavigator';
 import Header from './components/Header';
 
 const MainScreen = () => {
   return (
     <View style={styles.mainView}>
       <Header />
-      <AppNavigator />
+      <AppBottomTabNavigator />
     </View>
   );
 };

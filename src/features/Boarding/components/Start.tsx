@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Colors from '../../../constants/Colors';
 
 const Start = () => {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   takeInto: {
-    backgroundColor: Colors.activeIcon,
+    backgroundColor: Colors.ACTIVE_ICON,
     borderRadius: 3,
     width: 190,
     height: 40,
