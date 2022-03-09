@@ -8,18 +8,38 @@
  * @format
  */
 
-import React from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {StatusBar, StyleSheet, SafeAreaView} from 'react-native';
-import Header from './components/Header';
-import AppNavigator from './AppNavigator';
+import BoardingScreen from './features/Boarding/BoardingScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import MainScreen from './MainScreen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
+  const [isAppFirstLaunched, setIsAppFirstLaunched] = useState<boolean | null>(
+    null,
+  );
+
   return (
-    <SafeAreaView style={styles.screen}>
-      <StatusBar backgroundColor={'black'} />
-      <Header />
-      <AppNavigator />
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={styles.screen}>
+        <StatusBar backgroundColor={'black'} />
+
+        <Stack.Navigator
+          //initialRouteName="onBoardingScreen"
+          screenOptions={{headerShown: false}}>
+          {isAppFirstLaunched && (
+            <Stack.Screen name="onBoardingScreen" component={BoardingScreen} />
+          )}
+          <Stack.Screen name="mainScreen" component={MainScreen} />
+        </Stack.Navigator>
+
+        {/* <AppNavigator /> */}
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
 
