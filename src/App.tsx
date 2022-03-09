@@ -8,45 +8,55 @@
  * @format
  */
 
-import React, {useCallback, useEffect, useState} from 'react';
-import {StatusBar, StyleSheet, SafeAreaView} from 'react-native';
+import React, { useState } from 'react';
 import BoardingScreen from './features/Boarding/BoardingScreen';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainScreen from './MainScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { StatusBar, StyleSheet, SafeAreaView } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './Store/Store';
+import Colors from './constants/Colors';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [isAppFirstLaunched, setIsAppFirstLaunched] = useState<boolean | null>(
-    null,
+    null
   );
 
   return (
-    <NavigationContainer>
-      <SafeAreaView style={styles.screen}>
-        <StatusBar backgroundColor={'black'} />
+    <Provider store={store}>
+      <NavigationContainer>
+        <SafeAreaView style={styles.screen}>
+          <StatusBar backgroundColor={'black'} />
 
-        <Stack.Navigator
-          //initialRouteName="onBoardingScreen"
-          screenOptions={{headerShown: false}}>
-          {isAppFirstLaunched && (
-            <Stack.Screen name="onBoardingScreen" component={BoardingScreen} />
-          )}
-          <Stack.Screen name="mainScreen" component={MainScreen} />
-        </Stack.Navigator>
+          <Stack.Navigator
+            //initialRouteName="onBoardingScreen"
+            screenOptions={{ headerShown: false }}
+          >
+            {isAppFirstLaunched && (
+              <Stack.Screen
+                name="onBoardingScreen"
+                component={BoardingScreen}
+              />
+            )}
+            <Stack.Screen name="mainScreen" component={MainScreen} />
+          </Stack.Navigator>
 
-        {/* <AppNavigator /> */}
-      </SafeAreaView>
-    </NavigationContainer>
+          {/* <AppNavigator /> */}
+        </SafeAreaView>
+      </NavigationContainer>
+    </Provider>
   );
 };
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: Colors.BLACK,
   },
 });
 

@@ -1,13 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import BoardingScreen from '../Boarding/BoardingScreen';
+import { View, Text, StyleSheet } from 'react-native';
+import Strings from '../../constants/Strings';
 
 const HomeScreen = () => {
   return (
     <View style={styles.text}>
-      <Text>Home Screen</Text>
+      <Text>{Strings.homeScreen.PLACEHOLDER}</Text>
     </View>
-    //<BoardingScreen />
   );
 };
 

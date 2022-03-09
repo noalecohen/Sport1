@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import Strings from '../../constants/Strings';
 
 const VodScreen = () => {
   return (
     <View style={styles.text}>
-      <Text>VOD Screen</Text>
+      <Text>{Strings.vodScreen.PLACEHOLDER}</Text>
     </View>
   );
 };
@@ -16,4 +17,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
 export default VodScreen;
