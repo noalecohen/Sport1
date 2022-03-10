@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/black" />
+
+    <item
+        android:width="182dp"
+        android:height="16dp"
+        android:drawable="@mipmap/created_by_moveo"
+        android:gravity="center" />
+</layer-list>
