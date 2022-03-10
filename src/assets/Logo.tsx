@@ -1,9 +1,14 @@
 import React from 'react';
+import { ViewStyle } from 'react-native';
 import Svg, { G, Path } from 'react-native-svg';
 
-const Logo = () => {
+interface LogoProps {
+  style: ViewStyle | ViewStyle[];
+}
+
+const Logo = (props: LogoProps) => {
   return (
-    <Svg width="85" height="23" viewBox="0 0 85 23">
+    <Svg width="85" height="23" viewBox="0 0 85 23" style={props.style}>
       <G fill="none" fillRule="evenodd">
         <G fillRule="nonzero">
           <G>

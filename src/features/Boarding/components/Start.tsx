@@ -1,11 +1,21 @@
+import { NavigationAction } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Colors from '../../../constants/Colors';
 
-const Start = () => {
+interface StartProps {
+  navigation: NavigationAction<any, any>;
+}
+
+const Start = (props: StartProps) => {
   return (
     <View style={styles.start}>
-      <TouchableOpacity style={styles.takeInto}>
+      <TouchableOpacity
+        style={styles.takeInto}
+        onPress={() => {
+          props.navigation.navigate('mainScreen');
+        }}
+      >
         <Text style={styles.takeIntoTitle}>קח אותי פנימה</Text>
       </TouchableOpacity>
       <View style={styles.userMessage}>

@@ -40,7 +40,7 @@ const BoardingScreen = ({ navigation }: BoardingScreenProps) => {
     currentSlideIndex < slides.length - 1 ? (
       <SlidesIndicators slides={slides} currentSlideIndex={currentSlideIndex} />
     ) : (
-      <Start />
+      <Start navigation={navigation} />
     );
 
   return (
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: '#EDEEF0',
+    //backgroundColor: 'red',
   },
   skip: {
     alignItems: 'flex-start',

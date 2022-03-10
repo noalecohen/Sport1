@@ -26,5 +26,8 @@ export default {
       ENDPOINT: '/wp-json/sport1/v1/navigation',
       TYPE_PREFIX: 'more/getCategories',
     },
+    getConfig: {
+      ENDPOINT: '/wp-json/sport1/v1/config',
+    },
   },
 };
