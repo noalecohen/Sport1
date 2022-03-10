@@ -8,43 +8,21 @@
  * @format
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StatusBar, StyleSheet, SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
 import { store } from './Store/Store';
 import Colors from './constants/Colors';
 import AppStackNavigator from './AppStackNavigator';
-//import SplashScreen from 'react-native-splash-screen';
 
 const App = () => {
-  const [isAppFirstLaunch, setIsAppFirstLaunch] = useState<boolean | null>(
-    true
-  );
-
-  AsyncStorage.getItem('firstTime').then((value) => {
-    if (value) {
-      setIsAppFirstLaunch(false);
-    } else {
-      setIsAppFirstLaunch(true);
-      AsyncStorage.setItem('firstTime', 'true');
-    }
-  });
-
-  // const App = () => {
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       SplashScreen.hide();
-  //     }, 3000);
-  //   }, []);
-
   return (
     <Provider store={store}>
       <NavigationContainer>
         <SafeAreaView style={styles.screen}>
-          <StatusBar backgroundColor={'black'} />
-          <AppStackNavigator isAppFirstLaunch={isAppFirstLaunch} />
+          <StatusBar backgroundColor={Colors.BLACK} />
+          <AppStackNavigator />
         </SafeAreaView>
       </NavigationContainer>
     </Provider>
