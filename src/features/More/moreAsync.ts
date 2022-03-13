@@ -4,7 +4,7 @@ import moreRepository from './moreRepository';
 
 const moreAsync = {
   getCategories: createAsyncThunk(
-    Strings.moreScreen.api.getAllCategories.TYPE_PREFIX,
+    Strings.api.getAllCategories.TYPE_PREFIX,
     async () => {
       try {
         const result = await moreRepository.getCategories();

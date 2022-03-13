@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ArrowIcon from '../../../assets/icons/ArrowIcon';
 import Colors from '../../../constants/Colors';
-import Category from '../more.model';
+import { Category } from '../more.model';
 
 interface CategoryItemProps {
   itemData: { item: Category; index: number };
