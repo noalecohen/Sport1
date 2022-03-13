@@ -11,6 +11,7 @@ import {
   View,
 } from 'react-native';
 import { RootStackParamList } from '../../AppStackNavigator';
+import Colors from '../../constants/Colors';
 import Footer from './components/Footer';
 import Slide from './components/Slide';
 import SlidesIndicators from './components/SlidesIndicators';
@@ -72,8 +73,7 @@ const BoardingScreen = ({ navigation }: BoardingScreenProps) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#EDEEF0',
-    //backgroundColor: 'red',
+    backgroundColor: Colors.ONBOARDING_BACKGROUND,
   },
   skip: {
     alignItems: 'flex-start',
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   skipTitle: {
-    color: '#545454',
+    color: Colors.LIGHT_GREY,
   },
 });
 

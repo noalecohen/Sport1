@@ -2,6 +2,7 @@ import { NavigationAction } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Colors from '../../../constants/Colors';
+import Strings from '../../../constants/Strings';
 
 interface StartProps {
   navigation: NavigationAction<any, any>;
@@ -16,10 +17,14 @@ const Start = (props: StartProps) => {
           props.navigation.navigate('mainScreen');
         }}
       >
-        <Text style={styles.takeIntoTitle}>קח אותי פנימה</Text>
+        <Text style={styles.takeIntoTitle}>
+          {Strings.boardingScreen.slides.thirdSlide.footer.START}
+        </Text>
       </TouchableOpacity>
       <View style={styles.userMessage}>
-        <Text>כבר יש לי משתמש</Text>
+        <Text>
+          {Strings.boardingScreen.slides.thirdSlide.footer.HAVE_USER_BUTTON}
+        </Text>
       </View>
     </View>
   );
@@ -39,13 +44,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   takeIntoTitle: {
-    color: 'black',
+    color: Colors.BLACK,
     fontWeight: 'bold',
     fontSize: 20,
   },
   userMessage: {
     fontSize: 15,
-    color: '#545454',
+    color: Colors.LIGHT_GREY,
     marginTop: 20,
   },
 });

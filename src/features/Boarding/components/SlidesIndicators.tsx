@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   indicator: {
     height: 8,
     width: 8,
-    backgroundColor: '#CECECE', //grey
+    backgroundColor: Colors.GREY,
     marginHorizontal: 3,
     borderRadius: 5,
   },

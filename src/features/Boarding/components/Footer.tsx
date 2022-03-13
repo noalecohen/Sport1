@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
   footer: {
     justifyContent: 'space-between',
     height: '16%',
-    //backgroundColor: 'pink',
   },
 });
 

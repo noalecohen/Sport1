@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
   slide: {
     alignItems: 'center',
     width: width,
-    //backgroundColor: 'blue',
     height: height * 0.72,
     flex: 1,
   },
@@ -47,14 +46,14 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   title: {
-    color: 'black',
+    color: Colors.BLACK,
     fontSize: width * 0.06,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 25,
   },
   subtitle: {
-    color: 'black',
+    color: Colors.BLACK,
     maxWidth: '65%',
     textAlign: 'center',
     marginTop: 25,

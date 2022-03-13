@@ -5,9 +5,17 @@ export default class ForceUpdateAsync {
   static async isForceUpdateNeeded() {
     const deviceVersion = DeviceInfo.getVersion();
     //const deviceVersion = '0.0.9';
-    const minAppVersion = await ForceUpdateRepository.getMinVersion();
-    const comp = ForceUpdateAsync.compareVersion(minAppVersion, deviceVersion);
-    return comp === 1;
+    try {
+      const minAppVersion = await ForceUpdateRepository.getMinVersion();
+      const comp = ForceUpdateAsync.compareVersion(
+        minAppVersion,
+        deviceVersion
+      );
+      return comp === 1;
+    } catch (error) {
+      console.log("error!");
+      //handle error
+    }
   }
 
   //return: 1 if min > device, -1 if min < device, 0 if min === device (by value & length)

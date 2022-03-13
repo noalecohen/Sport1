@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Logo from '../../assets/Logo';
 import Colors from '../../constants/Colors';
+import Strings from '../../constants/Strings';
 import ForceUpdateAsync from './ForceUpdateAsync';
 
 const { width, height } = Dimensions.get('window');
@@ -18,19 +19,21 @@ const ForceUpdateScreen = () => {
     <View style={styles.screen}>
       <Logo style={styles.logo} />
       <View style={styles.image}>
-        <Image source={require('../../assets/images/football.png')} />
+        <Image source={Strings.forceUpdateScreen.IMAGE_PATH} />
       </View>
       <Text style={styles.title} numberOfLines={1}>
-        יש לנו גרסה חדשה בשבילך!
+        {Strings.forceUpdateScreen.TITLE}
       </Text>
       <Text style={styles.subTitle} numberOfLines={2}>
-        עדכן את האפליקציה בשביל להנות מהתכנים הכי מעודכנים של ספורט 1.
+        {Strings.forceUpdateScreen.SUBTITLE}
       </Text>
       <TouchableOpacity
         style={styles.updateButton}
         onPress={ForceUpdateAsync.isForceUpdateNeeded}
       >
-        <Text style={styles.updateButtonTitle}>עדכן לגרסה החדשה</Text>
+        <Text style={styles.updateButtonTitle}>
+          {Strings.forceUpdateScreen.UPDATE_BUTTON}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -38,7 +41,7 @@ const ForceUpdateScreen = () => {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: '#141414',
+    backgroundColor: Colors.PRIMARY,
     flex: 1,
     alignItems: 'center',
   },
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   subTitle: {
-    color: '#A9A9A9',
+    color: Colors.SUBTITLE,
     maxWidth: '80%',
     textAlign: 'center',
     fontSize: 19,
@@ -73,7 +76,7 @@ const styles = StyleSheet.create({
   },
   updateButtonTitle: {
     fontWeight: 'bold',
-    color: '#353535',
+    color: Colors.BUTTON_TITLE,
     textAlign: 'center',
     fontSize: 20,
   },
