@@ -1,13 +1,13 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import {
-  Dimensions,
   FlatList,
   NativeScrollEvent,
   NativeSyntheticEvent,
   StyleSheet,
   Text,
   TouchableOpacity,
+  useWindowDimensions,
   View,
 } from 'react-native';
 import { RootStackParamList } from '../../AppStackNavigator';
@@ -23,13 +23,10 @@ type BoardingScreenProps = NativeStackScreenProps<
   'onBoardingScreen'
 >;
 
-const { width, height } = Dimensions.get('window');
-
-const slides = slideModel;
-
 const BoardingScreen = ({ navigation }: BoardingScreenProps) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-
+  const { width, height } = useWindowDimensions();
+  const slides = slideModel;
   const updateCurrentSlideIndex = (
     event: NativeSyntheticEvent<NativeScrollEvent>
   ) => {

@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import moreReducer from '../features/More/moreSlice';
+import moreReducer from '../features/more/moreSlice';
 
 export const store = configureStore({
   reducer: {

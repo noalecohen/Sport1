@@ -13,7 +13,6 @@ export default class ForceUpdateAsync {
       );
       return comp === 1;
     } catch (error) {
-      console.log("error!");
       //handle error
     }
   }

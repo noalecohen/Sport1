@@ -1,11 +1,12 @@
-import { NavigationAction } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { RootStackParamList } from '../../../AppStackNavigator';
 import Colors from '../../../constants/Colors';
 import Strings from '../../../constants/Strings';
 
 interface StartProps {
-  navigation: NavigationAction<any, any>;
+  navigation: NativeStackNavigationProp<RootStackParamList, 'onBoardingScreen'>;
 }
 
 const Start = (props: StartProps) => {
@@ -14,7 +15,7 @@ const Start = (props: StartProps) => {
       <TouchableOpacity
         style={styles.takeInto}
         onPress={() => {
-          props.navigation.navigate('mainScreen');
+          props.navigation.replace('mainScreen');
         }}
       >
         <Text style={styles.takeIntoTitle}>

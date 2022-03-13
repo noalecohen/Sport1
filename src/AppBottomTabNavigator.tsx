@@ -4,8 +4,8 @@ import HomeIcon from './assets/icons/HomeIcon';
 import MoreIcon from './assets/icons/MoreIcon';
 import VodIcon from './assets/icons/VodIcon';
 import Colors from './constants/Colors';
-import HomeScreen from './features/Home/HomeScreen';
-import MoreScreen from './features/More/MoreScreen';
+import HomeScreen from './features/home/HomeScreen';
+import MoreScreen from './features/more/MoreScreen';
 import VodScreen from './features/Vod/VodScreen';
 import Strings from './constants/Strings';
 

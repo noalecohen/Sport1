@@ -1,9 +1,9 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import BoardingScreen from './features/Boarding/BoardingScreen';
+import BoardingScreen from './features/boarding/BoardingScreen';
 import MainScreen from './MainScreen';
-import Splash from './features/Splash/Splash';
-import ForceUpdateScreen from './features/ForceUpdate/ForceUpdateScreen';
+import Splash from './features/splash/Splash';
+import ForceUpdateScreen from './features/forceUpdate/ForceUpdateScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

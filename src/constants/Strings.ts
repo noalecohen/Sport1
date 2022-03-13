@@ -68,17 +68,9 @@ export default {
     UPDATE_BUTTON: 'עדכן לגרסה החדשה',
   },
   stackNavigationScreens: {
-    splash: {
-      NAME: 'splash',
-    },
-    forceUpdate: {
-      NAME: 'forceUpdateScreen',
-    },
-    onBoarding: {
-      NAME: 'onBoardingScreen',
-    },
-    main: {
-      NAME: 'mainScreen',
-    },
+    splash: 'splash',
+    forceUpdate: 'forceUpdateScreen',
+    onBoarding: 'onBoardingScreen',
+    main: 'mainScreen',
   },
 };

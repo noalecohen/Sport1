@@ -12,7 +12,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar, StyleSheet, SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
-import { store } from './Store/Store';
+import { store } from './store/Store';
 import Colors from './constants/Colors';
 import AppStackNavigator from './AppStackNavigator';
 
