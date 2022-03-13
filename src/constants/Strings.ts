@@ -15,6 +15,8 @@ export default {
     NAME: 'MORE',
     LABEL: 'עוד',
     SEARCH_PLACEHOLDER: 'חפש קבוצות, ליגות, שחקנים….',
+    DOWN_ARROW: 'translate(-28 -140) rotate(0 31 145)',
+    UP_ARROW: 'translate(-28 -140) rotate(180 31 145)',
     slice: {
       NAME: 'more',
     },

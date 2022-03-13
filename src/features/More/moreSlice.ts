@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Strings from '../../constants/Strings';
 import { RootState } from '../../store/Store';
-import Category from './more.model';
+import { Category } from './more.model';
 import moreAsync from './moreAsync';
 
 //interface for *all* the states in More
