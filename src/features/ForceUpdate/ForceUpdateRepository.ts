@@ -1,11 +1,10 @@
 import { Platform } from 'react-native';
-import ForceUpdateApi from './ForceUpdateApi';
+import { getConfig } from './ForceUpdateApi';
 
 export default class ForceUpdateRepository {
   static async getMinVersion() {
     try {
-      const config = await ForceUpdateApi.getConfig();
-      console.log(Platform.OS);
+      const config = await getConfig();
       if (Platform.OS === 'ios') {
         return config.general.ios_min_version;
       }
