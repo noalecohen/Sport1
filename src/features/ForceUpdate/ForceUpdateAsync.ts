@@ -4,7 +4,6 @@ import DeviceInfo from 'react-native-device-info';
 export default class ForceUpdateAsync {
   static async isForceUpdateNeeded() {
     const deviceVersion = DeviceInfo.getVersion();
-    //const deviceVersion = '0.0.9';
     try {
       const minAppVersion = await ForceUpdateRepository.getMinVersion();
       const comp = ForceUpdateAsync.compareVersion(
