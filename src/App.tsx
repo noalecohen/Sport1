@@ -8,30 +8,23 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar, StyleSheet, SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
-import { store } from './Store/Store';
-
-import Header from './components/Header';
-import AppNavigator from './AppNavigator';
+import { store } from './store/Store';
 import Colors from './constants/Colors';
-import SplashScreen from 'react-native-splash-screen';
+import AppStackNavigator from './AppStackNavigator';
 
 const App = () => {
-  useEffect(() => {
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 3000);
-  }, []);
-
   return (
     <Provider store={store}>
-      <SafeAreaView style={styles.screen}>
-        <StatusBar backgroundColor={Colors.BLACK} />
-        <Header />
-        <AppNavigator />
-      </SafeAreaView>
+      <NavigationContainer>
+        <SafeAreaView style={styles.screen}>
+          <StatusBar backgroundColor={Colors.BLACK} />
+          <AppStackNavigator />
+        </SafeAreaView>
+      </NavigationContainer>
     </Provider>
   );
 };
