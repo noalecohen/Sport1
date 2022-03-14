@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, TextInput, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCategories } from './moreSlice';
 import moreAsync from './moreAsync';
-import Category from './more.model';
+import { Category } from './more.model';
 import CategoryItem from './components/categoryItem';
 import SearchIcon from '../../assets/icons/SearchIcon';
 import MoveoIcon from '../../assets/icons/MoveoIcon';
