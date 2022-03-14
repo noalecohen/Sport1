@@ -13,10 +13,6 @@ interface CategoryItemProps {
 }
 
 const CategoryItem = (props: CategoryItemProps) => {
-  const [subCategoriesHeight, setSubCategoriesHeight] = useState<
-    number | undefined
-  >(0);
-
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handlePress = () => {
@@ -25,14 +21,7 @@ const CategoryItem = (props: CategoryItemProps) => {
   };
 
   useEffect(() => {
-    if (props.isSelected) {
-      if (isExpanded) {
-        setSubCategoriesHeight(undefined);
-      } else {
-        setSubCategoriesHeight(0);
-      }
-    } else {
-      setSubCategoriesHeight(0);
+    if (!props.isSelected) {
       setIsExpanded(false);
     }
   }, [isExpanded, props.isSelected]);
@@ -41,14 +30,14 @@ const CategoryItem = (props: CategoryItemProps) => {
     <View>
       <TouchableOpacity
         style={{
-          ...styles(subCategoriesHeight).listItem,
+          ...styles(isExpanded).listItem,
           backgroundColor: props.isSelected ? Colors.ACTIVE_ICON : Colors.WHITE,
         }}
         onPress={handlePress}
       >
-        <View style={styles(subCategoriesHeight).itemContainer}>
+        <View style={styles(isExpanded).itemContainer}>
           {props.itemData.item.children.length !== 0 && (
-            <View style={styles(subCategoriesHeight).arrowIcon}>
+            <View style={styles(isExpanded).arrowIcon}>
               <ArrowIcon
                 transform={
                   isExpanded
@@ -59,15 +48,15 @@ const CategoryItem = (props: CategoryItemProps) => {
             </View>
           )}
 
-          <View style={styles(subCategoriesHeight).titleContainer}>
-            <Text style={styles(subCategoriesHeight).title}>
+          <View style={styles(isExpanded).titleContainer}>
+            <Text style={styles(isExpanded).title}>
               {props.itemData.item?.title}
             </Text>
           </View>
         </View>
       </TouchableOpacity>
 
-      <View style={styles(subCategoriesHeight).subCategories}>
+      <View style={styles(isExpanded).subCategories}>
         {props.itemData.item.children.map((child) => (
           <View key={child.id}>
             <SubCategorytItem
@@ -79,7 +68,7 @@ const CategoryItem = (props: CategoryItemProps) => {
                 },
               }}
             />
-            <View style={styles(subCategoriesHeight).separator} />
+            <View style={styles(isExpanded).separator} />
           </View>
         ))}
       </View>
@@ -87,7 +76,7 @@ const CategoryItem = (props: CategoryItemProps) => {
   );
 };
 
-const styles = (subCategoriesHeight: number | undefined) =>
+const styles = (isExpanded: boolean) =>
   StyleSheet.create({
     listItem: {
       height: 52,
@@ -119,7 +108,7 @@ const styles = (subCategoriesHeight: number | undefined) =>
       flexDirection: 'row-reverse',
     },
     subCategories: {
-      height: subCategoriesHeight,
+      height: isExpanded ? undefined : 0,
       overflow: 'hidden',
     },
     separator: {
