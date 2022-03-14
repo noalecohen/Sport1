@@ -21,42 +21,45 @@ interface slideProps {
 }
 
 const Slide = (props: slideProps) => {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   return (
-    <View style={styles(width, height).slide}>
-      <Image source={props.item.image} style={styles(width, height).image} />
-      <Text style={styles(width, height).title}>{props.item.title}</Text>
-      <View style={styles().line} />
-      <Text style={styles().subtitle}>{props.item.subtitle}</Text>
+    <View style={styles(width).slide}>
+      <Image source={props.item.image} style={styles(width).image} />
+      <View style={styles(width).description}>
+        <Text style={styles(width).title}>{props.item.title}</Text>
+        <View style={styles(width).line} />
+        <Text style={styles(width).subtitle}>{props.item.subtitle}</Text>
+      </View>
     </View>
   );
 };
 
-const styles = (width?: number, height?: number) =>
+const styles = (width: number) =>
   StyleSheet.create({
     slide: {
       alignItems: 'center',
       width: width,
-      height: height! * 0.72,
       flex: 1,
     },
     image: {
-      height: '75%',
-      width: width ? width : '100%',
+      flex: 0.7,
+      justifyContent: 'center',
+      width: width,
       resizeMode: 'contain',
     },
     title: {
       color: Colors.BLACK,
-      fontSize: width! * 0.06,
+      fontSize: 26,
       fontWeight: 'bold',
       textAlign: 'center',
       marginTop: 25,
     },
     subtitle: {
       color: Colors.BLACK,
-      maxWidth: '65%',
+      maxWidth: '80%',
       textAlign: 'center',
       marginTop: 25,
+      fontSize: 19,
     },
     line: {
       height: 4,
@@ -64,6 +67,10 @@ const styles = (width?: number, height?: number) =>
       backgroundColor: Colors.ACTIVE_ICON,
       borderRadius: 7,
       marginTop: 3,
+    },
+    description: {
+      flex: 0.4,
+      alignItems: 'center',
     },
   });
 
