@@ -1,14 +1,12 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   FlatList,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
   StyleSheet,
   Text,
   TouchableOpacity,
-  useWindowDimensions,
   View,
+  Animated,
 } from 'react-native';
 import { RootStackParamList } from '../../AppStackNavigator';
 import Colors from '../../constants/Colors';
@@ -24,16 +22,15 @@ type BoardingScreenProps = NativeStackScreenProps<
 >;
 
 const BoardingScreen = ({ navigation }: BoardingScreenProps) => {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const { width, height } = useWindowDimensions();
   const slides = slideModel;
-  const updateCurrentSlideIndex = (
-    event: NativeSyntheticEvent<NativeScrollEvent>
-  ) => {
-    const contentOffsetX = event.nativeEvent.contentOffset.x;
-    const currentIndex = Math.round(contentOffsetX / width);
-    setCurrentSlideIndex(currentIndex);
-  };
+  const slidesRef = useRef(null);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const scrollX = useRef(new Animated.Value(0)).current;
+  const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
+  const viewableItemChanged = useRef(({ viewableItems }) => {
+    setCurrentSlideIndex(viewableItems[0].index);
+  }).current;
+
   const footerContent =
     currentSlideIndex < slides.length - 1 ? (
       <SlidesIndicators slides={slides} currentSlideIndex={currentSlideIndex} />
@@ -52,16 +49,26 @@ const BoardingScreen = ({ navigation }: BoardingScreenProps) => {
           <Text style={styles.skipTitle}>דלג</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.list}>
+        <FlatList
+          data={slides}
+          renderItem={({ item }) => <Slide item={item} />}
+          pagingEnabled
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          bounces={false}
+          keyExtractor={(item) => item.id}
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+            { useNativeDriver: false }
+          )}
+          onViewableItemsChanged={viewableItemChanged}
+          scrollEventThrottle={32}
+          viewabilityConfig={viewConfig}
+          ref={slidesRef}
+        />
+      </View>
 
-      <FlatList
-        data={slides}
-        onMomentumScrollBegin={updateCurrentSlideIndex}
-        pagingEnabled
-        contentContainerStyle={{ height: height * 0.65 }}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <Slide item={item} />}
-      />
       <Footer footerContent={footerContent} />
     </View>
   );
@@ -80,6 +87,9 @@ const styles = StyleSheet.create({
   },
   skipTitle: {
     color: Colors.LIGHT_GREY,
+  },
+  list: {
+    flex: 3,
   },
 });
 
